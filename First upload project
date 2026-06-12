@@ -1,0 +1,481 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>มื้อนี้กินอะไรดี ? </title>
+
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+
+<style>
+
+.food-image{
+    width:100%;
+    height:250px;
+    object-fit:cover;
+    border-radius:15px 15px 0 0;
+}
+
+body{
+    background: linear-gradient(135deg,#ffffff,#fcd29f);
+    min-height:100vh;
+}
+
+.hero{
+    text-align:center;
+    padding:40px 0;
+}
+
+.card-custom{
+    border:none;
+    border-radius:20px;
+    box-shadow:0 4px 12px rgba(0,0,0,0.1);
+}
+
+.food-card{
+    animation:fadeIn .4s ease;
+}
+
+@keyframes fadeIn{
+    from{
+        opacity:0;
+        transform:translateY(15px);
+    }
+    to{
+        opacity:1;
+        transform:translateY(0);
+    }
+}
+
+</style>
+
+</head>
+
+<body>
+
+<div class="container py-4">
+
+    <div class="hero">
+        <h1 class="display-4">🍜 มื้อนี้กินอะไรดี ? </h1>
+
+        <p id="visitorCount" class="badge bg-primary fs-6">
+    กำลังโหลดจำนวนผู้เข้าชม...
+</p>
+
+        <p class="lead">
+            เลือกวัตถุดิบ ประเทศ หรือวิธีการปรุง
+            แล้วให้ระบบแนะนำมื้ออาหารวันนี้ของคุณ
+        </p>
+    </div>
+
+    <div class="card card-custom mb-4">
+        <div class="card-body">
+
+            <h5>🥩 ส่วนประกอบ</h5>
+
+            <div class="mb-3">
+
+                <div class="form-check form-check-inline">
+                    <input class="form-check-input ingredient" type="checkbox" value="หมู">
+                    <label class="form-check-label">หมู</label>
+                </div>
+        
+                <div class="form-check form-check-inline">
+                    <input class="form-check-input ingredient" type="checkbox" value="ไก่">
+                    <label class="form-check-label">ไก่</label>
+                </div>
+                
+                <div class="form-check form-check-inline">
+                    <input class="form-check-input ingredient" type="checkbox" value="เนื้อวัว">
+                    <label class="form-check-label">เนื้อวัว</label>
+                </div>
+
+                <div class="form-check form-check-inline">
+                    <input class="form-check-input ingredient" type="checkbox" value="กุ้ง">
+                    <label class="form-check-label">กุ้ง</label>
+                </div>
+
+                <div class="form-check form-check-inline">
+                    <input class="form-check-input ingredient" type="checkbox" value="หมึก">
+                    <label class="form-check-label">หมึก</label>
+                </div>
+
+                <div class="form-check form-check-inline">
+                    <input class="form-check-input ingredient" type="checkbox" value="ไข่">
+                    <label class="form-check-label">ไข่</label>
+                </div>
+
+                <div class="form-check form-check-inline">
+                    <input class="form-check-input ingredient" type="checkbox" value="กระเทียม">
+                    <label class="form-check-label">กระเทียม</label>
+                </div>
+
+                <div class="form-check form-check-inline">
+                    <input class="form-check-input ingredient" type="checkbox" value="ใบกะเพรา">
+                    <label class="form-check-label">ใบกะเพรา</label>
+                </div>
+
+                <div class="form-check form-check-inline">
+                    <input class="form-check-input ingredient" type="checkbox" value="พริก">
+                    <label class="form-check-label">พริก</label>
+                </div>
+
+                <div class="form-check form-check-inline">
+                    <input class="form-check-input ingredient" type="checkbox" value="มะละกอ">
+                    <label class="form-check-label">มะละกอ</label>
+                </div>
+
+                <div class="form-check form-check-inline">
+                    <input class="form-check-input ingredient" type="checkbox" value="มะเขือเทศ">
+                    <label class="form-check-label">มะเขือเทศ</label>
+                </div>
+
+                 <div class="form-check form-check-inline">
+                    <input class="form-check-input ingredient" type="checkbox" value="เห็ด">
+                    <label class="form-check-label">เห็ด</label>
+                </div>       
+
+                <div class="form-check form-check-inline">
+                    <input class="form-check-input ingredient" type="checkbox" value="น้ำปลาร้า">
+                    <label class="form-check-label">น้ำปลาร้า</label>
+                </div>
+
+                <div class="form-check form-check-inline">
+                    <input class="form-check-input ingredient" type="checkbox" value="กะทิ">
+                    <label class="form-check-label">กะทิ</label>
+                </div>
+
+                 <div class="form-check form-check-inline">
+                    <input class="form-check-input ingredient" type="checkbox" value="ชีส">
+                    <label class="form-check-label">ชีส</label>
+                </div>
+
+            </div>
+
+            <h5>🌎 ประเทศ</h5>
+
+            <div class="mb-3">
+
+                <div class="form-check form-check-inline">
+                    <input class="form-check-input country" type="checkbox" value="ไทย">
+                    <label class="form-check-label">ไทย</label>
+                </div>
+
+                <div class="form-check form-check-inline">
+                    <input class="form-check-input country" type="checkbox" value="ญี่ปุ่น">
+                    <label class="form-check-label">ญี่ปุ่น</label>
+                </div>
+
+                <div class="form-check form-check-inline">
+                    <input class="form-check-input country" type="checkbox" value="อิตาเลียน">
+                    <label class="form-check-label">อิตาเลียน</label>
+                </div>
+
+            </div>
+
+            <h5>🍳 ประเภทการปรุง</h5>
+
+            <div class="mb-4">
+
+                <div class="form-check form-check-inline">
+                    <input class="form-check-input method" type="checkbox" value="ผัด">
+                    <label class="form-check-label">ผัด</label>
+                </div>
+
+                <div class="form-check form-check-inline">
+                    <input class="form-check-input method" type="checkbox" value="ทอด">
+                    <label class="form-check-label">ทอด</label>
+                </div>
+
+                <div class="form-check form-check-inline">
+                    <input class="form-check-input method" type="checkbox" value="แกง">
+                    <label class="form-check-label">แกง</label>
+                </div>
+
+                <div class="form-check form-check-inline">
+                    <input class="form-check-input method" type="checkbox" value="ต้ม">
+                    <label class="form-check-label">ต้ม</label>
+                </div>
+
+                <div class="form-check form-check-inline">
+                    <input class="form-check-input method" type="checkbox" value="ตำ">
+                    <label class="form-check-label">ตำ</label>
+                </div>
+
+            </div>
+
+            <button class="btn btn-primary" onclick="searchFood()">
+                ค้นหาอาหาร
+            </button>
+
+            <button class="btn btn-success" onclick="randomFood()">
+                🎲 สุ่มอาหาร
+            </button>
+
+            <button class="btn btn-secondary" onclick="resetAll()">
+                เลือกใหม่
+            </button>
+
+        </div>
+    </div>
+
+    <div id="results"></div>
+
+</div>
+
+<script>
+
+const foods = [
+
+{ name:"ส้มตำ",
+    image:"images/somtum.jpg",
+    ingredients:["มะละกอ","มะเขือเทศ","น้ำปลาร้า","พริก"],
+    country:"ไทย",
+    method:"ตำ"
+},
+
+{ name:"คะน้าหมูกรอบ",
+    image:"images/kanamoogrob.jpg",
+    ingredients:["ผักคะน้า","หมู","กระเทียม","พริก"],
+    country:"ไทย",
+    method:"ผัด"
+},
+
+{ name:"ผัดผงกะหรี่",
+    image:"images/curry.jpg",
+    ingredients:["กุ้ง","หมึก","ไข่"],
+    country:"ไทย",
+    method:"ผัด"
+},
+
+{
+    name:"ข้าวผัดไข่",
+    image:"images/friedrice.jpg",
+    ingredients:["ไข่"],
+    country:"ไทย",
+    method:"ผัด"
+},
+
+{
+    name:"ข้าวผัดหมู",
+    image:"images/khawpadmoo.jpg",
+    ingredients:["ไข่","หมู"],
+    country:"ไทย",
+    method:"ผัด"
+},
+
+{
+    name:"ข้าวผัดไก่",
+    image:"images/khawpadkai.jpg",
+    ingredients:["ไข่","ไก่"],
+    country:"ไทย",
+    method:"ผัด"
+},
+
+{
+    name:"ข้าวผัดกุ้ง",
+    image:"images/khawpadkung.jpg",
+    ingredients:["ไข่","กุ้ง"],
+    country:"ไทย",
+    method:"ผัด"
+},
+
+{
+    name:"หมูทอดกระเทียม",
+    image:"images/porkgarlic.jpg",
+    ingredients:["หมู","กระเทียม"],
+    country:"ไทย",
+    method:"ทอด"
+},
+
+{
+    name:"แกงเขียวหวานไก่",
+    image:"images/greencurry.jpg",
+    ingredients:["ไก่","กะทิ"],
+    country:"ไทย",
+    method:"แกง"
+},
+
+{
+    name:"ราเมงหมู",
+    image:"images/ramen.jpg",
+    ingredients:["หมู","ไข่"],
+    country:"ญี่ปุ่น",
+    method:"ต้ม"
+},
+
+{
+    name:"สปาเกตตีคาโบนารา",
+    image:"images/carbonara.jpg",
+    ingredients:["หมู","ไข่","ชีส","เห็ด"],
+    country:"อิตาเลียน",
+    method:"ผัด"
+}
+
+];
+
+let filteredFoods = [];
+
+function getChecked(className){
+
+    return [...document.querySelectorAll("." + className + ":checked")]
+    .map(item => item.value);
+}
+
+function searchFood(){
+
+    const ingredients = getChecked("ingredient");
+    const countries = getChecked("country");
+    const methods = getChecked("method");
+
+    let results = foods.map(food => {
+
+        let score = 0;
+
+        ingredients.forEach(i=>{
+            if(food.ingredients.includes(i)){
+                score++;
+            }
+        });
+
+        if(countries.includes(food.country)){
+            score++;
+        }
+
+        if(methods.includes(food.method)){
+            score++;
+        }
+
+        return {
+            ...food,
+            score
+        };
+
+    });
+
+    results = results
+        .filter(food => food.score > 0)
+        .sort((a,b)=>b.score-a.score);
+
+    filteredFoods = results;
+
+    displayFoods(results);
+}
+
+function displayFoods(foodsList){
+
+    const resultDiv =
+        document.getElementById("results");
+
+    if(foodsList.length === 0){
+
+        resultDiv.innerHTML = `
+        <div class="alert alert-warning">
+            ไม่พบเมนูที่ตรงกับเงื่อนไข
+        </div>
+        `;
+
+        return;
+    }
+
+resultDiv.innerHTML = `
+<div class="alert alert-info">
+พบเมนูทั้งหมด ${foodsList.length} เมนู
+</div>
+`;
+    resultDiv.innerHTML = "";
+
+    foodsList.forEach((food,index)=>{
+        
+        resultDiv.innerHTML += `
+        
+        <div class="card card-custom food-card mb-3">
+
+    <img
+        src="${food.image}"
+        class="food-image"
+        alt="${food.name}"
+    >
+
+    <div class="card-body">
+<h5 class="text-primary">
+อันดับ ${index + 1}
+</h5>
+        <h3>${food.name}</h3>
+
+        <p>🌎 ประเทศ : ${food.country}</p>
+
+        <p>🍳 ประเภท : ${food.method}</p>
+
+        <p>
+            🥬 ส่วนประกอบ :
+            ${food.ingredients.join(", ")}
+        </p>
+
+        <span class="badge bg-success">
+            ตรงกัน ${food.score} เงื่อนไข
+        </span>
+
+    </div>
+
+</div>
+
+`;
+
+    });
+}
+
+function randomFood(){
+
+    if(filteredFoods.length === 0){
+
+        alert("กรุณากดค้นหาอาหารก่อน");
+
+        return;
+    }
+
+    const randomIndex =
+        Math.floor(Math.random() * filteredFoods.length);
+
+    displayFoods([
+        filteredFoods[randomIndex]
+    ]);
+}
+
+function resetAll(){
+
+    document
+        .querySelectorAll("input[type='checkbox']")
+        .forEach(box => box.checked = false);
+
+    document.getElementById("results").innerHTML = "";
+
+    filteredFoods = [];
+}
+
+fetch("https://api.counterapi.dev/v1/food-randomizer-school-project/visits/up")
+.then(response => response.json())
+.then(data => {
+
+    document.getElementById("visitorCount").innerHTML =
+        "👥 จำนวนผู้เข้าชม: " + data.count;
+
+})
+.catch(error => {
+
+    document.getElementById("visitorCount").innerHTML =
+        "ไม่สามารถโหลดจำนวนผู้เข้าชมได้";
+
+    console.error(error);
+
+});
+
+</script>
+<footer class="text-center mt-5 mb-3 text-muted">
+    โครงงานคอมพิวเตอร์วิชาการประยุกต์ใช้เทคโนโลยี มัธยมศึกษาตอนปลาย
+    <br>
+    ระบบแนะนำและสุ่มอาหารตามความต้องการ
+</footer>
+</body>
+</html>
