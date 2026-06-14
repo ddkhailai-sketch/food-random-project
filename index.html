@@ -27,6 +27,57 @@ body{
     padding:40px 0;
 }
 
+.visitor-box{
+    display:inline-block;
+    background:linear-gradient(135deg,#ffb9d2,#ffc0d6);
+    color:white;
+    font-size:1.2rem;
+    font-weight:600;
+    padding:12px 30px;
+    border-radius:50px;
+    box-shadow:0 5px 15px rgba(247,143,179,0.4);
+    margin:15px 0;
+}
+
+.btn-search{
+    background:#f8a5c2;
+    border:none;
+    color:white;
+    font-weight:600;
+    padding:10px 20px;
+}
+
+.btn-search:hover{
+    background:#f78fb3;
+    color:white;
+}
+
+.btn-random{
+    background:#74b9ff;
+    border:none;
+    color:white;
+    font-weight:600;
+    padding:10px 20px;
+}
+
+.btn-random:hover{
+    background:#4da3ff;
+    color:white;
+}
+
+.btn-reset{
+    background:#f8f9fa;
+    border:1px solid #dee2e6;
+    color:#666;
+    font-weight:600;
+    padding:10px 20px;
+}
+
+.btn-reset:hover{
+    background:#e9ecef;
+    color:#333;
+}
+
 .card-custom{
     border:none;
     border-radius:20px;
@@ -48,6 +99,19 @@ body{
     }
 }
 
+.btn-search,
+.btn-random,
+.btn-reset{
+    transition:all 0.3s ease;
+}
+
+.btn-search:hover,
+.btn-random:hover,
+.btn-reset:hover{
+    transform:translateY(-4px);
+    box-shadow:0 4px 10px rgba(0,0,0,0.15);
+}
+
 </style>
 
 </head>
@@ -59,12 +123,11 @@ body{
     <div class="hero">
         <h1 class="display-4">🍜 มื้อนี้กินอะไรดี ? </h1>
 
-        <p id="visitorCount" class="badge bg-primary fs-6">
-    กำลังโหลดจำนวนผู้เข้าชม...
-</p>
-
+     <div id="visitorCount" class="visitor-box">
+      กำลังโหลดจำนวนผู้เข้าชม...
+     </div>
         <p class="lead">
-            เลือกวัตถุดิบ ประเทศ หรือวิธีการปรุง
+            เลือกวัตถุดิบ สไตล์ หรือวิธีการปรุง
             แล้วให้ระบบแนะนำมื้ออาหารวันนี้ของคุณ
         </p>
     </div>
@@ -75,6 +138,21 @@ body{
             <h5>🥩 ส่วนประกอบ</h5>
 
             <div class="mb-3">
+
+                 <div class="form-check form-check-inline">
+                    <input class="form-check-input ingredient" type="checkbox" value="ข้าว">
+                    <label class="form-check-label">ข้าว</label>
+                </div>
+
+                <div class="form-check form-check-inline">
+                    <input class="form-check-input ingredient" type="checkbox" value="เส้น">
+                    <label class="form-check-label">เส้น</label>
+                </div>
+
+                <div class="form-check form-check-inline">
+                    <input class="form-check-input ingredient" type="checkbox" value="แป้ง">
+                    <label class="form-check-label">แป้ง</label>
+                </div>
 
                 <div class="form-check form-check-inline">
                     <input class="form-check-input ingredient" type="checkbox" value="หมู">
@@ -131,7 +209,7 @@ body{
                     <label class="form-check-label">มะเขือเทศ</label>
                 </div>
 
-                 <div class="form-check form-check-inline">
+                <div class="form-check form-check-inline">
                     <input class="form-check-input ingredient" type="checkbox" value="เห็ด">
                     <label class="form-check-label">เห็ด</label>
                 </div>       
@@ -146,14 +224,14 @@ body{
                     <label class="form-check-label">กะทิ</label>
                 </div>
 
-                 <div class="form-check form-check-inline">
+                <div class="form-check form-check-inline">
                     <input class="form-check-input ingredient" type="checkbox" value="ชีส">
                     <label class="form-check-label">ชีส</label>
                 </div>
 
             </div>
 
-            <h5>🌎 ประเทศ</h5>
+            <h5>🌎 สไตล์</h5>
 
             <div class="mb-3">
 
@@ -163,8 +241,18 @@ body{
                 </div>
 
                 <div class="form-check form-check-inline">
+                    <input class="form-check-input country" type="checkbox" value="จีน">
+                    <label class="form-check-label">จีน</label>
+                </div>
+
+                <div class="form-check form-check-inline">
                     <input class="form-check-input country" type="checkbox" value="ญี่ปุ่น">
                     <label class="form-check-label">ญี่ปุ่น</label>
+                </div>
+
+                <div class="form-check form-check-inline">
+                    <input class="form-check-input country" type="checkbox" value="เกาหลี">
+                    <label class="form-check-label">เกาหลี</label>
                 </div>
 
                 <div class="form-check form-check-inline">
@@ -179,13 +267,13 @@ body{
             <div class="mb-4">
 
                 <div class="form-check form-check-inline">
-                    <input class="form-check-input method" type="checkbox" value="ผัด">
-                    <label class="form-check-label">ผัด</label>
+                    <input class="form-check-input method" type="checkbox" value="ต้ม">
+                    <label class="form-check-label">ต้ม</label>
                 </div>
 
                 <div class="form-check form-check-inline">
-                    <input class="form-check-input method" type="checkbox" value="ทอด">
-                    <label class="form-check-label">ทอด</label>
+                    <input class="form-check-input method" type="checkbox" value="ผัด">
+                    <label class="form-check-label">ผัด</label>
                 </div>
 
                 <div class="form-check form-check-inline">
@@ -194,8 +282,18 @@ body{
                 </div>
 
                 <div class="form-check form-check-inline">
-                    <input class="form-check-input method" type="checkbox" value="ต้ม">
-                    <label class="form-check-label">ต้ม</label>
+                    <input class="form-check-input method" type="checkbox" value="ทอด">
+                    <label class="form-check-label">ทอด</label>
+                </div>
+
+                <div class="form-check form-check-inline">
+                    <input class="form-check-input method" type="checkbox" value="นึ่ง">
+                    <label class="form-check-label">นึ่ง</label>
+                </div>
+
+                <div class="form-check form-check-inline">
+                    <input class="form-check-input method" type="checkbox" value="อบ">
+                    <label class="form-check-label">อบ</label>
                 </div>
 
                 <div class="form-check form-check-inline">
@@ -203,18 +301,23 @@ body{
                     <label class="form-check-label">ตำ</label>
                 </div>
 
+                <div class="form-check form-check-inline">
+                    <input class="form-check-input method" type="checkbox" value="ย่าง">
+                    <label class="form-check-label">ย่าง</label>
+                </div>
+
             </div>
 
-            <button class="btn btn-primary" onclick="searchFood()">
-                ค้นหาอาหาร
+            <button class="btn btn-search" onclick="searchFood()">
+              🔍 ค้นหาอาหาร
             </button>
 
-            <button class="btn btn-success" onclick="randomFood()">
-                🎲 สุ่มอาหาร
+            <button class="btn btn-random" onclick="randomFood()">
+              🎲 สุ่มอาหาร
             </button>
 
-            <button class="btn btn-secondary" onclick="resetAll()">
-                เลือกใหม่
+            <button class="btn btn-reset" onclick="resetAll()">
+              🔄 เลือกใหม่
             </button>
 
         </div>
@@ -228,21 +331,48 @@ body{
 
 const foods = [
 
-{ name:"ส้มตำ",
+{
+    name:"ผัดซีอิ๊วหมู",
+    image:"images/padseeaiw.jpg",
+    ingredients:["เส้น","หมู","ไข่"],
+    country:"ไทย",
+    method:"ผัด"
+},
+
+{
+    name:"ต้มยำกุ้ง",
+    image:"images/tomyam.jpg",
+    ingredients:["กุ้ง","กะทิ","พริก","เห็ด","มะเขือเทศ"],
+    country:"ไทย",
+    method:"ต้ม"
+},
+
+{ 
+    name:"ผัดไทย",
+    image:"images/padthai.jpg",
+    ingredients:["เส้น","กุ้ง","ไข่"],
+    country:"ไทย",
+    method:"ผัด"
+},
+
+{
+    name:"ส้มตำ",
     image:"images/somtum.jpg",
     ingredients:["มะละกอ","มะเขือเทศ","น้ำปลาร้า","พริก"],
     country:"ไทย",
     method:"ตำ"
 },
 
-{ name:"คะน้าหมูกรอบ",
+{ 
+    name:"คะน้าหมูกรอบ",
     image:"images/kanamoogrob.jpg",
     ingredients:["ผักคะน้า","หมู","กระเทียม","พริก"],
     country:"ไทย",
     method:"ผัด"
 },
 
-{ name:"ผัดผงกะหรี่",
+{ 
+    name:"ผัดผงกะหรี่",
     image:"images/curry.jpg",
     ingredients:["กุ้ง","หมึก","ไข่"],
     country:"ไทย",
@@ -252,7 +382,7 @@ const foods = [
 {
     name:"ข้าวผัดไข่",
     image:"images/friedrice.jpg",
-    ingredients:["ไข่"],
+    ingredients:["ข้าว","ไข่"],
     country:"ไทย",
     method:"ผัด"
 },
@@ -260,7 +390,7 @@ const foods = [
 {
     name:"ข้าวผัดหมู",
     image:"images/khawpadmoo.jpg",
-    ingredients:["ไข่","หมู"],
+    ingredients:["ข้าว","ไข่","หมู"],
     country:"ไทย",
     method:"ผัด"
 },
@@ -268,7 +398,7 @@ const foods = [
 {
     name:"ข้าวผัดไก่",
     image:"images/khawpadkai.jpg",
-    ingredients:["ไข่","ไก่"],
+    ingredients:["ข้าว","ไข่","ไก่"],
     country:"ไทย",
     method:"ผัด"
 },
@@ -276,7 +406,7 @@ const foods = [
 {
     name:"ข้าวผัดกุ้ง",
     image:"images/khawpadkung.jpg",
-    ingredients:["ไข่","กุ้ง"],
+    ingredients:["ข้าว","ไข่","กุ้ง"],
     country:"ไทย",
     method:"ผัด"
 },
@@ -298,20 +428,148 @@ const foods = [
 },
 
 {
+    name:"บะกุ๊ดเต๋",
+    image:"images/bagudet.jpg",
+    ingredients:["หมู","กระเทียม","เห็ด"],
+    country:"จีน",
+    method:"ต้ม"
+},
+
+{
+    name:"ผัดหมี่ซัว",
+    image:"images/padmeesau.jpg",
+    ingredients:["เส้น","หมู","ไก่","เห็ด"],
+    country:"จีน",
+    method:"ผัด"
+},
+
+{
+    name:"หมาล่าทัง",
+    image:"images/malatang.jpg",
+    ingredients:["เส้น","หมู","เนื้อวัว","ไก่","กุ้ง","หมึก","เห็ด"],
+    country:"จีน",
+    method:"ผัด"
+},
+
+{
+    name:"หมาล่าเสียบไม้",
+    image:"images/mala.jpg",
+    ingredients:["เส้น","หมู","เนื้อวัว","ไก่","กุ้ง","หมึก","เห็ด"],
+    country:"จีน",
+    method:"ย่าง"
+},
+
+{
+    name:"ติ่มซำ",
+    image:"images/timsum.jpg",
+    ingredients:["แป้ง","หมู","เนื้อวัว","ไก่","กุ้ง","หมึก","เห็ด"],
+    country:"จีน",
+    method:"นึ่ง"
+},
+
+{ 
+    name:"บิบิมบับ",
+    image:"images/bibimbap.jpg",
+    ingredients:["ข้าว","เนื้อวัว","ไข่"],
+    country:"เกาหลี",
+    method:"ยำ"
+},
+
+{ 
+    name:"ต๊อกบกกี",
+    image:"images/tokbokki.jpg",
+    ingredients:["แป้ง","ชีส"],
+    country:"เกาหลี",
+    method:"ผัด"
+},
+
+{ 
+    name:"มาม่าเกาหลี",
+    image:"images/mamakorean.jpg",
+    ingredients:["เส้น","หมู","เนื้อวัว","เห็ด","ชีส","ไข่"],
+    country:"เกาหลี",
+    method:"ผัด"
+},
+
+{ 
+    name:"จาจังมยอน",
+    image:"images/jajangmyeon.jpg",
+    ingredients:["เส้น","หมู","ไข่"],
+    country:"เกาหลี",
+    method:"ผัด"
+},
+
+{ 
+    name:"รามยอน",
+    image:"images/ramyoon.jpg",
+    ingredients:["เส้น","ไข่"],
+    country:"เกาหลี",
+    method:"ต้ม"
+},
+
+{
     name:"ราเมงหมู",
     image:"images/ramen.jpg",
-    ingredients:["หมู","ไข่"],
+    ingredients:["เส้น","หมู","ไข่"],
     country:"ญี่ปุ่น",
     method:"ต้ม"
 },
 
 {
+    name:"ข้าวหน้าปลาไหล",
+    image:"images/Kabayaki.jpg",
+    ingredients:["ข้าว","ปลา"],
+    country:"ญี่ปุ่น",
+    method:"-"
+},
+
+{
+    name:"ข้าวแกงกะหรี่",
+    image:"images/Kareraisu.jpg",
+    ingredients:["ข้าว","หมู"],
+    country:"ญี่ปุ่น",
+    method:"แกง"
+},
+
+{
+    name:"ยากิโซบะ",
+    image:"images/Yakisoba.jpg",
+    ingredients:["เส้น","หมู"],
+    country:"ญี่ปุ่น",
+    method:"ผัด"
+},
+
+{
+    name:"ซูชิ",
+    image:"images/sushi.jpg",
+    ingredients:["ข้าว","ปลา"],
+    country:"ญี่ปุ่น",
+    method:"-"
+},
+
+{
     name:"สปาเกตตีคาโบนารา",
     image:"images/carbonara.jpg",
-    ingredients:["หมู","ไข่","ชีส","เห็ด"],
+    ingredients:["เส้น","หมู","ไข่","ชีส","เห็ด"],
     country:"อิตาเลียน",
     method:"ผัด"
-}
+},
+
+{
+    name:"สปาเกตตีคาโบนารา",
+    image:"images/carbonara.jpg",
+    ingredients:["เส้น","หมู","ไข่","ชีส","เห็ด"],
+    country:"อิตาเลียน",
+    method:"ผัด"
+},
+
+{ 
+    name:"ลาซานญ่า",
+    image:"images/lasagna.jpg",
+    ingredients:["แป้ง","เนื้อวัว","มะเขือเทศ","ชีส"],
+    country:"อิตาเลียน",
+    method:"อบ"
+},
 
 ];
 
@@ -404,7 +662,7 @@ resultDiv.innerHTML = `
 </h5>
         <h3>${food.name}</h3>
 
-        <p>🌎 ประเทศ : ${food.country}</p>
+        <p>🌎 สไตล์ : ${food.country}</p>
 
         <p>🍳 ประเภท : ${food.method}</p>
 
@@ -459,13 +717,13 @@ fetch("https://api.counterapi.dev/v1/food-randomizer-school-project/visits/up")
 .then(data => {
 
     document.getElementById("visitorCount").innerHTML =
-        "👥 จำนวนผู้เข้าชม: " + data.count;
+     " จำนวนผู้เข้าชมเว็บไซต์ " + data.count + " คน";
 
 })
 .catch(error => {
 
     document.getElementById("visitorCount").innerHTML =
-        "ไม่สามารถโหลดจำนวนผู้เข้าชมได้";
+     " ⚠️ ไม่สามารถโหลดจำนวนผู้เข้าชมได้";
 
     console.error(error);
 
