@@ -703,22 +703,25 @@ function resetAll(){
     filteredFoods = [];
 }
 
-fetch("https://api.counterapi.dev/v1/food-randomizer-school-project/visits/up")
-.then(response => response.json())
-.then(data => {
+async function updateVisitorCount() {
+    try {
+        const response = await fetch(
+            "https://api.countapi.xyz/hit/food-random-project-ddkhailai/visits"
+        );
 
-    document.getElementById("visitorCount").innerHTML =
-     "👥 จำนวนผู้เข้าชมเว็บไซต์ " + data.value + " คน";
+        const data = await response.json();
 
-})
-.catch(error => {
+        document.getElementById("visitorCount").innerHTML =
+            "👥 จำนวนผู้เข้าชมเว็บไซต์ " + data.value + " คน";
+    }
+    catch (error) {
+        document.getElementById("visitorCount").innerHTML =
+            "⚠️ ไม่สามารถโหลดจำนวนผู้เข้าชมได้";
+        console.error(error);
+    }
+}
 
-    document.getElementById("visitorCount").innerHTML =
-     " ⚠️ ไม่สามารถโหลดจำนวนผู้เข้าชมได้";
-
-    console.error(error);
-
-});
+updateVisitorCount();
 
 </script>
 <footer class="text-center mt-5 mb-3 text-muted">
