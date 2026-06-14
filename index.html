@@ -555,14 +555,6 @@ const foods = [
     method:"ผัด"
 },
 
-{
-    name:"สปาเกตตีคาโบนารา",
-    image:"images/carbonara.jpg",
-    ingredients:["เส้น","หมู","ไข่","ชีส","เห็ด"],
-    country:"อิตาเลียน",
-    method:"ผัด"
-},
-
 { 
     name:"ลาซานญ่า",
     image:"images/lasagna.jpg",
@@ -642,7 +634,6 @@ resultDiv.innerHTML = `
 พบเมนูทั้งหมด ${foodsList.length} เมนู
 </div>
 `;
-    resultDiv.innerHTML = "";
 
     foodsList.forEach((food,index)=>{
         
@@ -717,7 +708,7 @@ fetch("https://api.counterapi.dev/v1/food-randomizer-school-project/visits/up")
 .then(data => {
 
     document.getElementById("visitorCount").innerHTML =
-     " จำนวนผู้เข้าชมเว็บไซต์ " + data.count + " คน";
+     "👥 จำนวนผู้เข้าชมเว็บไซต์ " + data.value + " คน";
 
 })
 .catch(error => {
