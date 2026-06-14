@@ -123,9 +123,15 @@ body{
     <div class="hero">
         <h1 class="display-4">🍜 มื้อนี้กินอะไรดี ? </h1>
 
-     <div id="visitorCount" class="visitor-box">
-      กำลังโหลดจำนวนผู้เข้าชม...
+     <div class="visitor-box">
+          👥 ผู้เข้าชมเว็บไซต์<br><br>
+
+         <img
+            src="https://visitor-badge.laobi.icu/badge?page_id=ddkhailai.food-random-project"
+            alt="visitor counter"
+         >
      </div>
+     
         <p class="lead">
             เลือกวัตถุดิบ สไตล์ หรือวิธีการปรุง
             แล้วให้ระบบแนะนำมื้ออาหารวันนี้ของคุณ
@@ -702,26 +708,6 @@ function resetAll(){
 
     filteredFoods = [];
 }
-
-async function updateVisitorCount() {
-    try {
-        const response = await fetch(
-            "https://api.countapi.xyz/hit/food-random-project-ddkhailai/visits"
-        );
-
-        const data = await response.json();
-
-        document.getElementById("visitorCount").innerHTML =
-            "👥 จำนวนผู้เข้าชมเว็บไซต์ " + data.value + " คน";
-    }
-    catch (error) {
-        document.getElementById("visitorCount").innerHTML =
-            "⚠️ ไม่สามารถโหลดจำนวนผู้เข้าชมได้";
-        console.error(error);
-    }
-}
-
-updateVisitorCount();
 
 </script>
 <footer class="text-center mt-5 mb-3 text-muted">
